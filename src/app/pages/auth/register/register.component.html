@@ -1,0 +1,91 @@
+<div id="center" class="bg-secondary pb-5">
+  <a routerLink="/auth" class="p-3"
+    ><i class="bi bi-arrow-left-circle-fill fs-1 text-light"></i
+  ></a>
+  <form
+    class="w-50 mx-auto p-3 bg-light rounded-2"
+    [formGroup]="form"
+    (ngSubmit)="register()"
+    novalidate
+  >
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome</label>
+      <input type="text" class="form-control" formControlName="nome" />
+      <span
+        *ngIf="!isValid('nome') && isTouched('nome')"
+        class="text-danger fst-italic"
+        >Campo richiesto</span
+      >
+    </div>
+    <div class="mb-3">
+      <label for="cognome" class="form-label">Cognome</label>
+      <input type="text" class="form-control" formControlName="cognome" />
+      <span
+        *ngIf="!isValid('cognome') && isTouched('cognome')"
+        class="text-danger fst-italic"
+        >Campo richiesto</span
+      >
+    </div>
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" formControlName="username" />
+      <span
+        *ngIf="!isValid('username') && isTouched('username')"
+        class="text-danger fst-italic"
+        >Campo richiesto</span
+      >
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" formControlName="email" />
+      <span
+        *ngIf="!isValid('email') && isTouched('email')"
+        class="text-danger fst-italic"
+        >Campo richiesto</span
+      >
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password" />
+      <span
+        *ngIf="!isValid('password') && isTouched('password')"
+        class="text-danger fst-italic"
+        >Campo richiesto</span
+      >
+    </div>
+    <div class="mb-3">
+      <label for="confermaPassword" class="form-label">Conferma password</label>
+      <input
+        type="password"
+        class="form-control"
+        formControlName="confermaPassword"
+      />
+      <span
+        *ngIf="!isValid('confermaPassword') && isTouched('confermaPassword')"
+        class="text-danger fst-italic d-block"
+        >Campo richiesto</span
+      >
+      <span
+        *ngIf="form.hasError('matchPswControl')"
+        class="text-danger fst-italic"
+        >Le password non coincidono</span
+      >
+    </div>
+    <div class="mb-3">
+      <label for="genere" class="form-label">Genere</label>
+      <select class="form-select" formControlName="genere">
+        <option value="Uomo">Uomo</option>
+        <option value="Donna">Donna</option>
+        <option value="Altro">Altro</option>
+      </select>
+      <span
+        *ngIf="!isValid('genere') && isTouched('genere')"
+        class="text-danger fst-italic"
+        >Campo richiesto</span
+      >
+    </div>
+    <button [disabled]="form.invalid" class="btn btn-primary">
+      Registrati
+    </button>
+  </form>
+</div>

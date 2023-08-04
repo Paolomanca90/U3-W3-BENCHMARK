@@ -1,0 +1,24 @@
+<div id="center" class="p-5">
+  <form class="d-flex w-25 mx-auto" role="search">
+    <input
+      class="form-control me-2"
+      type="search"
+      placeholder="Cerca la tua città"
+      aria-label="Search"
+      [(ngModel)]="city"
+      name="city"
+    />
+    <button class="btn btn-outline-primary" (click)="searchCity()">
+      Cerca
+    </button>
+  </form>
+  <div
+    *ngIf="weather"
+    class="container w-25 mx-auto border border-3 rounded-4 bg light m-5 p-4 text-bg-secondary"
+  >
+    <p>{{ weather.weather[0].icon }}@2x.png</p>
+    <h2>{{ weather.name }}</h2>
+    <p>{{ weather.main.temp }}℃</p>
+    <p>{{ data }}</p>
+  </div>
+</div>

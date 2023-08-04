@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "email": "satehebybo@mailinator.com",
+      "password": "$2a$10$SE0AqE3WBGzJrTFpU6vsxuxAoRNpi9GkK0YFbbVBiExppIjgU24aC",
+      "nome": "Numquam aut nesciunt",
+      "cognome": "Ducimus aut nihil n",
+      "username": "Consequuntur omnis a",
+      "confermaPassword": "Pa$$w0rd!",
+      "genere": "Donna",
+      "id": 1
+    }
+  ]
+}
