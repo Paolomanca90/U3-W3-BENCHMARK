@@ -13,15 +13,37 @@
     </a>
 
     <ul class="nav nav-pills">
-      <li class="nav-item">
+      <li class="nav-item me-2">
         <a routerLink="/home" routerLinkActive="active" class="nav-link"
           >Home</a
         >
       </li>
       <li class="nav-item">
-        <a routerLink="/auth" routerLinkActive="active" class="nav-link"
+        <a
+          routerLink="/auth"
+          routerLinkActive="active"
+          class="nav-link"
+          *ngIf="!isLogged"
           >Accedi</a
         >
+      </li>
+      <li class="nav-item">
+        <a
+          routerLink="/dashboard"
+          class="nav-link me-2"
+          routerLinkActive="active"
+          *ngIf="isLogged"
+          >Meteo</a
+        >
+      </li>
+      <li class="nav-item">
+        <button
+          class="btn btn-outline-primary"
+          *ngIf="isLogged"
+          (click)="logout()"
+        >
+          LogOut
+        </button>
       </li>
     </ul>
   </header>

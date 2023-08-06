@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { IApiresp } from 'src/app/pages/auth/interfaces/apiresp';
 import { IAccessData } from './interfaces/access-data';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { BehaviorSubject, Observable, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, switchMap, tap } from 'rxjs';
 import { ILogin } from './interfaces/login';
 import { IRegister } from './interfaces/register';
+import { IUser } from './interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -58,6 +59,7 @@ export class AuthService {
   }
 
   signUp(data:IRegister){
+    data.preferiti = [];
     return this.http.post<IAccessData>(this.registerUrl, data)
   }
 
@@ -67,6 +69,20 @@ export class AuthService {
     const accessData:IAccessData = JSON.parse(userJson)
     if(this.jwtHelper.isTokenExpired(accessData.accessToken)) return
     this.authSubject.next(accessData)
+  }
+
+  addPreferiti(id: number, item: IApiresp) {
+    return this.http.get<IUser>(`${this.usersUrl}/${id}`).pipe(
+      switchMap((user) => {
+        const index = user.preferiti.findIndex((preferito) => preferito.name === item.name)
+        if (index !== -1) {
+          user.preferiti.splice(index, 1)
+        } else {
+          user.preferiti.push(item)
+        }
+        return this.http.patch<IUser>(`${this.usersUrl}/${id}`, { preferiti: user.preferiti })
+      })
+    )
   }
 
 }

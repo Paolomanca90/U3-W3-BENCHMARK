@@ -1,13 +1,58 @@
 {
   "users": [
     {
-      "email": "satehebybo@mailinator.com",
-      "password": "$2a$10$SE0AqE3WBGzJrTFpU6vsxuxAoRNpi9GkK0YFbbVBiExppIjgU24aC",
-      "nome": "Numquam aut nesciunt",
-      "cognome": "Ducimus aut nihil n",
-      "username": "Consequuntur omnis a",
+      "email": "qasanir@mailinator.com",
+      "password": "$2a$10$o5k2TztIUc2.Sb8y6RV39.Cm4jgcvpQGGbAOIdiObY5cBsDm6xxai",
+      "nome": "Error accusamus qui ",
+      "cognome": "Modi voluptatem sapi",
+      "username": "Sit excepteur enim v",
       "confermaPassword": "Pa$$w0rd!",
-      "genere": "Donna",
+      "genere": "Uomo",
+      "preferiti": [
+        {
+          "coord": {
+            "lon": 12.4829,
+            "lat": 41.8933
+          },
+          "weather": [
+            {
+              "id": 801,
+              "main": "Clouds",
+              "description": "Poche nuvole",
+              "icon": "02n"
+            }
+          ],
+          "base": "stations",
+          "main": {
+            "temp": 20.3,
+            "feels_like": 20.13,
+            "temp_min": 17.4,
+            "temp_max": 21.9,
+            "pressure": 1008,
+            "humidity": 65
+          },
+          "visibility": 10000,
+          "wind": {
+            "speed": 1.03,
+            "deg": 0
+          },
+          "clouds": {
+            "all": 20
+          },
+          "dt": 1691278872,
+          "sys": {
+            "type": 2,
+            "id": 2000926,
+            "country": "IT",
+            "sunrise": 1691294899,
+            "sunset": 1691346221
+          },
+          "timezone": 7200,
+          "id": 3169070,
+          "name": "Roma",
+          "cod": 200
+        }
+      ],
       "id": 1
     }
   ]

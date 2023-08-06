@@ -1,3 +1,5 @@
+import { IApiresp } from "./apiresp";
+
 export interface IRegister {
   nome:string;
   cognome:string;
@@ -5,5 +7,6 @@ export interface IRegister {
   password:string;
   confermaPassword:string;
   username:string;
-  genere:string
+  genere:string;
+  preferiti?:IApiresp[]
 }

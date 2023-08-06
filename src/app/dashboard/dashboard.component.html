@@ -1,24 +1,73 @@
-<div id="center" class="p-5">
-  <form class="d-flex w-25 mx-auto" role="search">
-    <input
-      class="form-control me-2"
-      type="search"
-      placeholder="Cerca la tua città"
-      aria-label="Search"
-      [(ngModel)]="city"
-      name="city"
-    />
-    <button class="btn btn-outline-primary" (click)="searchCity()">
-      Cerca
-    </button>
-  </form>
-  <div
-    *ngIf="weather"
-    class="container w-25 mx-auto border border-3 rounded-4 bg light m-5 p-4 text-bg-secondary"
-  >
-    <p>{{ weather.weather[0].icon }}@2x.png</p>
-    <h2>{{ weather.name }}</h2>
-    <p>{{ weather.main.temp }}℃</p>
-    <p>{{ data }}</p>
+<div id="center">
+  <div class="app-wrap">
+    <header>
+      <form class="d-flex w-25 mx-auto" role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Cerca una città"
+          aria-label="Search"
+          [(ngModel)]="city"
+          name="city"
+          (keydown.enter)="searchCity()"
+        />
+      </form>
+    </header>
+    <main *ngIf="weather">
+      <section class="location">
+        <div class="city">{{ weather.name }}</div>
+        <div class="date">{{ formatDate(weather.dt) }}</div>
+        <img
+          [src]="
+            'https://openweathermap.org/img/wn/' +
+            weather.weather[0].icon +
+            '@2x.png'
+          "
+          alt="icon"
+        />
+        <i
+          class="bi bi-star-fill"
+          (click)="addPref(weather)"
+          [ngStyle]="{ color: isPresent(weather) ? 'gold' : 'lightgrey' }"
+        ></i>
+      </section>
+      <div class="current">
+        <div class="temp">{{ weather.main.temp }}<span>°c</span></div>
+        <div class="weather">
+          {{ weather.weather[0].description }}
+        </div>
+        <div class="hi-low">
+          {{ weather.main.temp_min }}°c / {{ weather.main.temp_max }}°c
+        </div>
+      </div>
+    </main>
+    <div id="preferiti" class="py-5 m-5 border border-3 border-light rounded-4">
+      <h4 class="fw-bold text-secondary bg-light rounded-pill px-3">
+        Preferiti
+      </h4>
+      <div *ngFor="let item of preferiti" class="main">
+        <div class="left">
+          <div class="date">{{ formatDate(item.dt) }}</div>
+          <div class="city">{{ item.name }}</div>
+          <div class="tempreture">
+            <img
+              [src]="
+                'https://openweathermap.org/img/wn/' +
+                item.weather[0].icon +
+                '@2x.png'
+              "
+              alt="icon"
+              class="left-img"
+            />
+            {{ item.main.temp.toFixed(1) }}°c
+          </div>
+          <i
+            class="bi bi-star-fill pref"
+            (click)="addPref(item)"
+            [ngStyle]="{ color: isPresent(item) ? 'gold' : 'lightgrey' }"
+          ></i>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

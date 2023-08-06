@@ -18,7 +18,7 @@ export class RegisterComponent {
     password : '',
     confermaPassword : '',
     username : '',
-    genere: '',
+    genere: ''
   }
 
   constructor(

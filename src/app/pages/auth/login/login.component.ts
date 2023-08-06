@@ -10,27 +10,4 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  formData:ILogin = {
-    email : '',
-    password : ''
-  }
-
-  constructor(
-    private authSvc:AuthService,
-    private router:Router
-    ){}
-
-  login(){
-    this.authSvc.login(this.formData).subscribe(data => {
-      this.router.navigate(['/dashboard'])
-    })
-  }
-
-  fill(){
-    if(this.formData.email == '' || this.formData.password == ''){
-      return true
-    }
-    return false
-  }
-
 }

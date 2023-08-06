@@ -1,3 +1,5 @@
+import { IApiresp } from "./apiresp";
+
 export interface IUser {
   id:number;
   nome:string;
@@ -5,4 +7,5 @@ export interface IUser {
   email:string;
   genere:string;
   username:string
+  preferiti:IApiresp[]
 }
