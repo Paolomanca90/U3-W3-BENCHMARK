@@ -99,7 +99,7 @@ main{
 .main{
 
   width: 200px;
-  height: 120px;
+  height: 130px;
   margin: 1em;
   background-color: #FFFFF0;
   box-shadow: 0px 31px 35px -26px hsl(230, 61%, 8%);
@@ -121,7 +121,7 @@ main{
 }
 
 .date{
-  font-size: 0.6em;
+  font-size: 0.7em;
   color: rgba(0,0,0,0.5);
   font-weight: bold;
 }
@@ -154,6 +154,7 @@ main{
 }
 
 h4{
+  font-family: 'Raleway', sans-serif;
   position: absolute;
   top: -7%;
   left: 3%;

@@ -11,25 +11,111 @@
       "preferiti": [
         {
           "coord": {
+            "lon": 9.19,
+            "lat": 45.4642
+          },
+          "weather": [
+            {
+              "id": 800,
+              "main": "Clear",
+              "description": "Cielo sereno",
+              "icon": "01n"
+            }
+          ],
+          "base": "stations",
+          "main": {
+            "temp": 22.6,
+            "feels_like": 21.64,
+            "temp_min": 21.5,
+            "temp_max": 22.9,
+            "pressure": 1009,
+            "humidity": 26
+          },
+          "visibility": 10000,
+          "wind": {
+            "speed": 5.66,
+            "deg": 360
+          },
+          "clouds": {
+            "all": 0
+          },
+          "dt": 1691357538,
+          "sys": {
+            "type": 1,
+            "id": 6742,
+            "country": "IT",
+            "sunrise": 1691295152,
+            "sunset": 1691347549
+          },
+          "timezone": 7200,
+          "id": 3173435,
+          "name": "Milano",
+          "cod": 200
+        },
+        {
+          "coord": {
             "lon": 12.4829,
             "lat": 41.8933
           },
           "weather": [
             {
-              "id": 801,
+              "id": 802,
               "main": "Clouds",
-              "description": "Poche nuvole",
-              "icon": "02n"
+              "description": "Nubi sparse",
+              "icon": "03n"
             }
           ],
           "base": "stations",
           "main": {
-            "temp": 20.3,
-            "feels_like": 20.13,
-            "temp_min": 17.4,
-            "temp_max": 21.9,
-            "pressure": 1008,
-            "humidity": 65
+            "temp": 22.4,
+            "feels_like": 22.29,
+            "temp_min": 20,
+            "temp_max": 23.4,
+            "pressure": 1010,
+            "humidity": 62
+          },
+          "visibility": 10000,
+          "wind": {
+            "speed": 3.09,
+            "deg": 180
+          },
+          "clouds": {
+            "all": 40
+          },
+          "dt": 1691359626,
+          "sys": {
+            "type": 2,
+            "id": 2000926,
+            "country": "IT",
+            "sunrise": 1691381361,
+            "sunset": 1691432547
+          },
+          "timezone": 7200,
+          "id": 3169070,
+          "name": "Roma",
+          "cod": 200
+        },
+        {
+          "coord": {
+            "lon": 10.4013,
+            "lat": 43.7155
+          },
+          "weather": [
+            {
+              "id": 800,
+              "main": "Clear",
+              "description": "Cielo sereno",
+              "icon": "01n"
+            }
+          ],
+          "base": "stations",
+          "main": {
+            "temp": 18.2,
+            "feels_like": 18.37,
+            "temp_min": 16.3,
+            "temp_max": 19.4,
+            "pressure": 1010,
+            "humidity": 88
           },
           "visibility": 10000,
           "wind": {
@@ -37,19 +123,19 @@
             "deg": 0
           },
           "clouds": {
-            "all": 20
+            "all": 0
           },
-          "dt": 1691278872,
+          "dt": 1691363701,
           "sys": {
-            "type": 2,
-            "id": 2000926,
+            "type": 1,
+            "id": 6803,
             "country": "IT",
-            "sunrise": 1691294899,
-            "sunset": 1691346221
+            "sunrise": 1691381600,
+            "sunset": 1691433307
           },
           "timezone": 7200,
-          "id": 3169070,
-          "name": "Roma",
+          "id": 3170647,
+          "name": "Pisa",
           "cod": 200
         }
       ],

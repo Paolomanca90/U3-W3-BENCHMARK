@@ -18,6 +18,8 @@ export class AuthService {
   registerUrl:string = this.apiUrl + '/register';
   loginUrl:string = this.apiUrl + '/login';
   usersUrl:string = this.apiUrl + '/users';
+  preferitiSubject = new BehaviorSubject<IApiresp[]>([])
+  preferiti$ = this.preferitiSubject.asObservable()
 
   constructor(
     private http: HttpClient,
@@ -48,7 +50,7 @@ export class AuthService {
   logout(){
     this.authSubject.next(null);
     localStorage.removeItem('accessData');
-    this.router.navigate(['/auth/login'])
+    this.router.navigate(['/auth'])
   }
 
   autoLogout(expDate:Date){
@@ -63,26 +65,55 @@ export class AuthService {
     return this.http.post<IAccessData>(this.registerUrl, data)
   }
 
-  restoreUser(){
-    const userJson:string|null = localStorage.getItem('accessData')
-    if(!userJson) return
-    const accessData:IAccessData = JSON.parse(userJson)
-    if(this.jwtHelper.isTokenExpired(accessData.accessToken)) return
-    this.authSubject.next(accessData)
+  // restoreUser(){
+  //   const userJson:string|null = localStorage.getItem('accessData')
+  //   if(!userJson) return
+  //   const accessData:IAccessData = JSON.parse(userJson)
+  //   if(this.jwtHelper.isTokenExpired(accessData.accessToken)) return
+  //   this.authSubject.next(accessData)
+  //   return this.user$
+  // }
+
+  restoreUser() {
+    const userJson: string | null = localStorage.getItem('accessData');
+    if (!userJson) return;
+    const accessData: IAccessData = JSON.parse(userJson);
+    if (this.jwtHelper.isTokenExpired(accessData.accessToken)) return;
+    this.authSubject.next(accessData);
+    this.getPreferiti(accessData.user.id).subscribe((updatedPreferiti: IApiresp[]) => {
+      this.updatePreferiti(updatedPreferiti);
+      this.authSubject.next(accessData);
+    })
+    return this.user$
+  }
+
+  getPreferiti(userId: number): Observable<IApiresp[]> {
+    return this.http.get<IUser>(`${this.usersUrl}/${userId}`).pipe(
+      map((user) => user.preferiti)
+    )
   }
 
   addPreferiti(id: number, item: IApiresp) {
     return this.http.get<IUser>(`${this.usersUrl}/${id}`).pipe(
       switchMap((user) => {
-        const index = user.preferiti.findIndex((preferito) => preferito.name === item.name)
+        const index = user.preferiti.findIndex((preferito) => preferito.name === item.name);
         if (index !== -1) {
-          user.preferiti.splice(index, 1)
+          user.preferiti.splice(index, 1);
         } else {
-          user.preferiti.push(item)
+          user.preferiti.push(item);
         }
-        return this.http.patch<IUser>(`${this.usersUrl}/${id}`, { preferiti: user.preferiti })
+        return this.http.patch<IUser>(`${this.usersUrl}/${id}`, { preferiti: user.preferiti }).pipe(
+          tap((updatedUser) => {
+            this.updatePreferiti(updatedUser.preferiti);
+          })
+        );
       })
-    )
+    );
+  }
+
+
+  updatePreferiti(preferiti: IApiresp[]){
+    this.preferitiSubject.next(preferiti);
   }
 
 }

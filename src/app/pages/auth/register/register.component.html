@@ -1,4 +1,4 @@
-<div id="center" class="bg-secondary pb-5">
+<div id="center" class="pb-5">
   <a routerLink="/auth" class="p-3"
     ><i class="bi bi-arrow-left-circle-fill fs-1 text-light"></i
   ></a>
@@ -84,8 +84,6 @@
         >Campo richiesto</span
       >
     </div>
-    <button [disabled]="form.invalid" class="btn btn-primary">
-      Registrati
-    </button>
+    <button [disabled]="form.invalid" class="btn">Registrati</button>
   </form>
 </div>
