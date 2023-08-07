@@ -1,50 +1,63 @@
-<div class="container-fluid p-0">
-  <header class="d-flex flex-wrap justify-content-center p-3 bg-warning">
-    <a
-      id="logo"
-      href="/"
-      class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-    >
+<nav class="navbar navbar-expand-lg bg-warning">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/" id="logo">
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Weather-sun-thorm-shower.svg/1200px-Weather-sun-thorm-shower.svg.png"
         alt="logo"
       />
       <span class="fs-4 fw-bold text-secondary">Clima360</span>
     </a>
-
-    <ul class="nav nav-pills">
-      <li class="nav-item me-2">
-        <a routerLink="/home" routerLinkActive="active" class="nav-link"
-          >Home</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          routerLink="/auth"
-          routerLinkActive="active"
-          class="nav-link"
-          *ngIf="!isLogged"
-          >Accedi</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          routerLink="/dashboard"
-          class="nav-link me-2"
-          routerLinkActive="active"
-          *ngIf="isLogged"
-          >Meteo</a
-        >
-      </li>
-      <li class="nav-item">
-        <button
-          class="btn btn-outline-primary"
-          *ngIf="isLogged"
-          (click)="logout()"
-        >
-          LogOut
-        </button>
-      </li>
-    </ul>
-  </header>
-</div>
+    <button
+      id="toggler"
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-end align-items-center"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav my-2 mb-lg-0 mt-lg-0 align-items-center me-lg-2">
+        <li class="nav-item me-lg-2 w-100">
+          <a routerLink="/home" routerLinkActive="active" class="nav-link"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item w-100">
+          <a
+            routerLink="/auth"
+            routerLinkActive="active"
+            class="nav-link"
+            *ngIf="!isLogged"
+            >Accedi</a
+          >
+        </li>
+        <li class="nav-item w-100">
+          <a
+            routerLink="/dashboard"
+            class="nav-link me-lg-2"
+            routerLinkActive="active"
+            *ngIf="isLogged"
+            >Meteo</a
+          >
+        </li>
+        <li class="nav-item w-100">
+          <button
+            id="logout"
+            class="btn btn-outline-primary w-100 mt-1 mt-lg-0"
+            *ngIf="isLogged"
+            (click)="logout()"
+          >
+            LogOut
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

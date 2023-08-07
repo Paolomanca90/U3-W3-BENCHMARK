@@ -41,13 +41,13 @@ export class DashboardComponent {
     this.authSvc.restoreUser()?.pipe(
       tap((user) => {
         if(user){
-        this.user = user?.user as IUser
-        this.refreshPreferitiData()
+          this.user = user?.user as IUser
+          this.refreshPreferitiData()
         }else{
           this.router.navigate(['/auth'])
         }
       })
-    ).subscribe();
+      ).subscribe();
     }
 
     addPref(item: IApiresp) {
@@ -105,6 +105,11 @@ export class DashboardComponent {
             this.preferiti[index] = weather;
           })
       })
+    }
+
+    setCityAndSearch(city: string) {
+      this.city = city;
+      this.searchCity();
     }
 
 }

@@ -1,7 +1,7 @@
 <div id="center">
   <div class="app-wrap">
     <header>
-      <form class="d-flex w-25 mx-auto" role="search">
+      <form id="input" class="d-flex w-25 mx-auto" role="search">
         <input
           class="form-control me-2"
           type="search"
@@ -48,7 +48,11 @@
       <h4 class="fw-bold text-secondary bg-light rounded-pill px-3">
         Preferiti
       </h4>
-      <div *ngFor="let item of preferiti" class="main">
+      <div
+        *ngFor="let item of preferiti"
+        class="main"
+        (click)="setCityAndSearch(item.name)"
+      >
         <div class="left">
           <div class="date">{{ formatDate(item.dt) }}</div>
           <div class="city">{{ item.name }}</div>

@@ -10,16 +10,21 @@
   font-family: 'Raleway', sans-serif;
 }
 
+a{
+  text-align: center;
+}
+
 a,
 button{
   color: #33495f;
   font-weight: 500;
 }
+
 button{
   border-color: #33495f;
 }
 
-button:hover{
+#logout:hover{
   border-color: #33495f;
   background-color: #33495f;
 }
@@ -28,6 +33,8 @@ a:hover{
   color: #33495f;
 }
 
-.active{
+a.active{
   background-color: #33495f !important;
+  color: white !important;
+  border-radius: 0.5em;
 }

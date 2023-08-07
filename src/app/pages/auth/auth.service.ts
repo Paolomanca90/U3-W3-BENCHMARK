@@ -65,15 +65,6 @@ export class AuthService {
     return this.http.post<IAccessData>(this.registerUrl, data)
   }
 
-  // restoreUser(){
-  //   const userJson:string|null = localStorage.getItem('accessData')
-  //   if(!userJson) return
-  //   const accessData:IAccessData = JSON.parse(userJson)
-  //   if(this.jwtHelper.isTokenExpired(accessData.accessToken)) return
-  //   this.authSubject.next(accessData)
-  //   return this.user$
-  // }
-
   restoreUser() {
     const userJson: string | null = localStorage.getItem('accessData');
     if (!userJson) return;
